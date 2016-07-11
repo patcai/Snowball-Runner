@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC218F4B1D341413009152CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC218F4A1D341413009152CF /* AppDelegate.swift */; };
+		DC218F4D1D341413009152CF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DC218F4C1D341413009152CF /* GameScene.sks */; };
+		DC218F4F1D341413009152CF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC218F4E1D341413009152CF /* GameScene.swift */; };
+		DC218F511D341413009152CF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC218F501D341413009152CF /* GameViewController.swift */; };
+		DC218F541D341413009152CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC218F521D341413009152CF /* Main.storyboard */; };
+		DC218F561D341413009152CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC218F551D341413009152CF /* Assets.xcassets */; };
+		DC218F591D341413009152CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC218F571D341413009152CF /* LaunchScreen.storyboard */; };
+		DC218F641D341413009152CF /* Snowball_RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC218F631D341413009152CF /* Snowball_RunnerTests.swift */; };
+		DC218F6F1D341413009152CF /* Snowball_RunnerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC218F6E1D341413009152CF /* Snowball_RunnerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC218F601D341413009152CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC218F3F1D341412009152CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC218F461D341412009152CF;
+			remoteInfo = "Snowball Runner";
+		};
+		DC218F6B1D341413009152CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC218F3F1D341412009152CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC218F461D341412009152CF;
+			remoteInfo = "Snowball Runner";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DC218F471D341412009152CF /* Snowball Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snowball Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC218F4A1D341413009152CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC218F4C1D341413009152CF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		DC218F4E1D341413009152CF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		DC218F501D341413009152CF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		DC218F531D341413009152CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC218F551D341413009152CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC218F581D341413009152CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC218F5A1D341413009152CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC218F5F1D341413009152CF /* Snowball RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Snowball RunnerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC218F631D341413009152CF /* Snowball_RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowball_RunnerTests.swift; sourceTree = "<group>"; };
+		DC218F651D341413009152CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC218F6A1D341413009152CF /* Snowball RunnerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Snowball RunnerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC218F6E1D341413009152CF /* Snowball_RunnerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowball_RunnerUITests.swift; sourceTree = "<group>"; };
+		DC218F701D341413009152CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC218F441D341412009152CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC218F5C1D341413009152CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC218F671D341413009152CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC218F3E1D341412009152CF = {
+			isa = PBXGroup;
+			children = (
+				DC218F491D341413009152CF /* Snowball Runner */,
+				DC218F621D341413009152CF /* Snowball RunnerTests */,
+				DC218F6D1D341413009152CF /* Snowball RunnerUITests */,
+				DC218F481D341412009152CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC218F481D341412009152CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC218F471D341412009152CF /* Snowball Runner.app */,
+				DC218F5F1D341413009152CF /* Snowball RunnerTests.xctest */,
+				DC218F6A1D341413009152CF /* Snowball RunnerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC218F491D341413009152CF /* Snowball Runner */ = {
+			isa = PBXGroup;
+			children = (
+				DC218F4A1D341413009152CF /* AppDelegate.swift */,
+				DC218F4C1D341413009152CF /* GameScene.sks */,
+				DC218F4E1D341413009152CF /* GameScene.swift */,
+				DC218F501D341413009152CF /* GameViewController.swift */,
+				DC218F521D341413009152CF /* Main.storyboard */,
+				DC218F551D341413009152CF /* Assets.xcassets */,
+				DC218F571D341413009152CF /* LaunchScreen.storyboard */,
+				DC218F5A1D341413009152CF /* Info.plist */,
+			);
+			path = "Snowball Runner";
+			sourceTree = "<group>";
+		};
+		DC218F621D341413009152CF /* Snowball RunnerTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC218F631D341413009152CF /* Snowball_RunnerTests.swift */,
+				DC218F651D341413009152CF /* Info.plist */,
+			);
+			path = "Snowball RunnerTests";
+			sourceTree = "<group>";
+		};
+		DC218F6D1D341413009152CF /* Snowball RunnerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DC218F6E1D341413009152CF /* Snowball_RunnerUITests.swift */,
+				DC218F701D341413009152CF /* Info.plist */,
+			);
+			path = "Snowball RunnerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC218F461D341412009152CF /* Snowball Runner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC218F731D341413009152CF /* Build configuration list for PBXNativeTarget "Snowball Runner" */;
+			buildPhases = (
+				DC218F431D341412009152CF /* Sources */,
+				DC218F441D341412009152CF /* Frameworks */,
+				DC218F451D341412009152CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Snowball Runner";
+			productName = "Snowball Runner";
+			productReference = DC218F471D341412009152CF /* Snowball Runner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC218F5E1D341413009152CF /* Snowball RunnerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC218F761D341413009152CF /* Build configuration list for PBXNativeTarget "Snowball RunnerTests" */;
+			buildPhases = (
+				DC218F5B1D341413009152CF /* Sources */,
+				DC218F5C1D341413009152CF /* Frameworks */,
+				DC218F5D1D341413009152CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC218F611D341413009152CF /* PBXTargetDependency */,
+			);
+			name = "Snowball RunnerTests";
+			productName = "Snowball RunnerTests";
+			productReference = DC218F5F1D341413009152CF /* Snowball RunnerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DC218F691D341413009152CF /* Snowball RunnerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC218F791D341413009152CF /* Build configuration list for PBXNativeTarget "Snowball RunnerUITests" */;
+			buildPhases = (
+				DC218F661D341413009152CF /* Sources */,
+				DC218F671D341413009152CF /* Frameworks */,
+				DC218F681D341413009152CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC218F6C1D341413009152CF /* PBXTargetDependency */,
+			);
+			name = "Snowball RunnerUITests";
+			productName = "Snowball RunnerUITests";
+			productReference = DC218F6A1D341413009152CF /* Snowball RunnerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC218F3F1D341412009152CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = patcai;
+				TargetAttributes = {
+					DC218F461D341412009152CF = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					DC218F5E1D341413009152CF = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = DC218F461D341412009152CF;
+					};
+					DC218F691D341413009152CF = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = DC218F461D341412009152CF;
+					};
+				};
+			};
+			buildConfigurationList = DC218F421D341412009152CF /* Build configuration list for PBXProject "Snowball Runner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC218F3E1D341412009152CF;
+			productRefGroup = DC218F481D341412009152CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC218F461D341412009152CF /* Snowball Runner */,
+				DC218F5E1D341413009152CF /* Snowball RunnerTests */,
+				DC218F691D341413009152CF /* Snowball RunnerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC218F451D341412009152CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC218F4D1D341413009152CF /* GameScene.sks in Resources */,
+				DC218F591D341413009152CF /* LaunchScreen.storyboard in Resources */,
+				DC218F561D341413009152CF /* Assets.xcassets in Resources */,
+				DC218F541D341413009152CF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC218F5D1D341413009152CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC218F681D341413009152CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC218F431D341412009152CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC218F4F1D341413009152CF /* GameScene.swift in Sources */,
+				DC218F511D341413009152CF /* GameViewController.swift in Sources */,
+				DC218F4B1D341413009152CF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC218F5B1D341413009152CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC218F641D341413009152CF /* Snowball_RunnerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC218F661D341413009152CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC218F6F1D341413009152CF /* Snowball_RunnerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC218F611D341413009152CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC218F461D341412009152CF /* Snowball Runner */;
+			targetProxy = DC218F601D341413009152CF /* PBXContainerItemProxy */;
+		};
+		DC218F6C1D341413009152CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC218F461D341412009152CF /* Snowball Runner */;
+			targetProxy = DC218F6B1D341413009152CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC218F521D341413009152CF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC218F531D341413009152CF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DC218F571D341413009152CF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC218F581D341413009152CF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC218F711D341413009152CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC218F721D341413009152CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC218F741D341413009152CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Snowball Runner/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.patcai.Snowball-Runner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DC218F751D341413009152CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Snowball Runner/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.patcai.Snowball-Runner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DC218F771D341413009152CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Snowball RunnerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.patcai.Snowball-RunnerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snowball Runner.app/Snowball Runner";
+			};
+			name = Debug;
+		};
+		DC218F781D341413009152CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Snowball RunnerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.patcai.Snowball-RunnerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snowball Runner.app/Snowball Runner";
+			};
+			name = Release;
+		};
+		DC218F7A1D341413009152CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Snowball RunnerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.patcai.Snowball-RunnerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Snowball Runner";
+			};
+			name = Debug;
+		};
+		DC218F7B1D341413009152CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Snowball RunnerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.patcai.Snowball-RunnerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Snowball Runner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC218F421D341412009152CF /* Build configuration list for PBXProject "Snowball Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC218F711D341413009152CF /* Debug */,
+				DC218F721D341413009152CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC218F731D341413009152CF /* Build configuration list for PBXNativeTarget "Snowball Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC218F741D341413009152CF /* Debug */,
+				DC218F751D341413009152CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DC218F761D341413009152CF /* Build configuration list for PBXNativeTarget "Snowball RunnerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC218F771D341413009152CF /* Debug */,
+				DC218F781D341413009152CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DC218F791D341413009152CF /* Build configuration list for PBXNativeTarget "Snowball RunnerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC218F7A1D341413009152CF /* Debug */,
+				DC218F7B1D341413009152CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC218F3F1D341412009152CF /* Project object */;
+}
