@@ -16,6 +16,7 @@
 		DC218F591D341413009152CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC218F571D341413009152CF /* LaunchScreen.storyboard */; };
 		DC218F641D341413009152CF /* Snowball_RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC218F631D341413009152CF /* Snowball_RunnerTests.swift */; };
 		DC218F6F1D341413009152CF /* Snowball_RunnerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC218F6E1D341413009152CF /* Snowball_RunnerUITests.swift */; };
+		DC218F7D1D3430E5009152CF /* Map.sks in Resources */ = {isa = PBXBuildFile; fileRef = DC218F7C1D3430E5009152CF /* Map.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		DC218F6A1D341413009152CF /* Snowball RunnerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Snowball RunnerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC218F6E1D341413009152CF /* Snowball_RunnerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowball_RunnerUITests.swift; sourceTree = "<group>"; };
 		DC218F701D341413009152CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC218F7C1D3430E5009152CF /* Map.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Map.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				DC218F4A1D341413009152CF /* AppDelegate.swift */,
+				DC218F7C1D3430E5009152CF /* Map.sks */,
 				DC218F4C1D341413009152CF /* GameScene.sks */,
 				DC218F4E1D341413009152CF /* GameScene.swift */,
 				DC218F501D341413009152CF /* GameViewController.swift */,
@@ -239,6 +242,7 @@
 				DC218F591D341413009152CF /* LaunchScreen.storyboard in Resources */,
 				DC218F561D341413009152CF /* Assets.xcassets in Resources */,
 				DC218F541D341413009152CF /* Main.storyboard in Resources */,
+				DC218F7D1D3430E5009152CF /* Map.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +498,7 @@
 				DC218F751D341413009152CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC218F761D341413009152CF /* Build configuration list for PBXNativeTarget "Snowball RunnerTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +507,7 @@
 				DC218F781D341413009152CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC218F791D341413009152CF /* Build configuration list for PBXNativeTarget "Snowball RunnerUITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +516,7 @@
 				DC218F7B1D341413009152CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

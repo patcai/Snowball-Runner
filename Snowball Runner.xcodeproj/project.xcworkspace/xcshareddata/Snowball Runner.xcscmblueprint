@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8B6AA536F628D537F05F9C99B5265C7936BA5DA1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8B6AA536F628D537F05F9C99B5265C7936BA5DA1" : 0,
+    "CB5CAF23D221BF8199030E6EC526E71F5C2C7301" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "01B15F14-30C5-4C71-99ED-93ABE7332530",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8B6AA536F628D537F05F9C99B5265C7936BA5DA1" : "Snowball%20Runner\/",
+    "CB5CAF23D221BF8199030E6EC526E71F5C2C7301" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Snowball Runner",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Snowball Runner.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/patcai\/Snowball-Runner.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8B6AA536F628D537F05F9C99B5265C7936BA5DA1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/patcai\/TheGamingCapital.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CB5CAF23D221BF8199030E6EC526E71F5C2C7301"
+    }
+  ]
+}

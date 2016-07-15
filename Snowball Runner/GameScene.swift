@@ -7,39 +7,88 @@
 //
 
 import SpriteKit
+import Foundation
+
+enum GameState {
+    case Loading, Title, Alive, GameOver
+}
 
 class GameScene: SKScene {
+    
+    var hillPoints: [CGPoint] = []
+    
+    var cameraTarget: SKNode?
+    var testBall: SKSpriteNode!
+    var terrain: SKShapeNode!
+    let hillCount = 10
+    
+    var point0: CGPoint = CGPoint(x: 0, y: 0)
+    var point1: CGPoint = CGPoint(x: 0, y: 0)
+    let segmentSize: CGFloat = 5
+    
+    var randomXnum = 600
+    var randomYnum = 300
+    
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        testBall = childNodeWithName("testBall") as! SKSpriteNode
         
-        self.addChild(myLabel)
+        terrain = SKShapeNode()
+        terrain.strokeColor = UIColor.blueColor()
+        addChild(terrain)
+        curvyTerrain()
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
+    func curvyTerrain() {
+        let path = UIBezierPath()
+        path.moveToPoint(hillPoints[0])
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
+        var newPoint1 = CGPoint(x: 0, y: 0)
+        
+        
+        for i in 1..<hillPoints.count {
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
+            point0 = hillPoints[i - 1]
+            point1 = hillPoints[i]
             
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
+            let segments = (point1.x - point0.x) / segmentSize
+            let dx = (point1.x - point0.x) / segments
+            let da = CGFloat(M_PI) / segments
             
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
+            let yMid = (point1.y + point0.y) / 2
+            let amplitude = (point0.y - point1.y) / 2
             
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+            for j in 0...Int(segments) + 1 {
+                newPoint1.x = point0.x + (CGFloat(j) * dx)
+                newPoint1.y = yMid + (amplitude * cos(da * CGFloat(j)))
+                path.addLineToPoint(newPoint1)
+            }
         }
+        terrain.path = path.CGPath
+        terrain.physicsBody = SKPhysicsBody(edgeChainFromPath: terrain.path!)
+        terrain.physicsBody?.affectedByGravity = false
+    }
+    
+    func generatePoints() {
+        let minX = 400
+        let minY = 300
+        
+        for i in 0...10 {
+            let currentX = 
+            
+            hillPoints.append(CGPoint(x: randomXnum, y: randomYnum))
+        }
+    }
+    
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        //camera?.position.x = testBall.position.x
+        //camera?.position.y = testBall.position.y
+        //terrain.position.x -= 8
+        //terrain.position.y += 0.8
+        
     }
 }
