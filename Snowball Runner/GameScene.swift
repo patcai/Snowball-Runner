@@ -16,37 +16,46 @@ enum GameState {
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var hillPoints: [CGPoint] = []
-    var segmentArray: [SKShapeNode] = []
+    var segmentArray: [Terrain] = []
     var snowball: SKSpriteNode!
     let cam = SKCameraNode()
     var point0: CGPoint = CGPoint(x: 0, y: 0)
     var point1: CGPoint = CGPoint(x: 0, y: 0)
-    let segmentSize: CGFloat = 5
-    var pathNum = 5
+    let segmentSize: CGFloat = 10
+    var pathNum = 4
     var onGround = false
-    var endX = CGFloat(0)
-    var endY = CGFloat(0)
+    var currentTerrain: Terrain!
+    var obstacle: SKSpriteNode!
+    var previousTerrain: Terrain?
     
     var state: GameState = .Loading
-
+    
+    
     override func didMoveToView(view: SKView) {
         snowball = childNodeWithName("snowball") as! SKSpriteNode
+        //obstacle = childNodeWithName("//obstacle") as! SKSpriteNode
         
         self.camera = cam
         
-        var firstSegment = SKShapeNode()
-        firstSegment.strokeColor = UIColor.blueColor()
-        firstSegment.fillColor = UIColor.whiteColor()
-        firstSegment.lineWidth = 4
-        firstSegment.name = "terrain"
+        let firstSegment = Terrain()
         addChild(firstSegment)
+        firstSegment.position = CGPoint(x: 0, y: 0)
         segmentArray.append(firstSegment)
+        currentTerrain = firstSegment
         generateTerrain(firstSegment, startPoint: CGPoint(x: 0, y: 600))
+        firstSegment.inUse = true
+        
+        let secondSegment = Terrain()
+        secondSegment.position = CGPoint(x: 0, y: 0)
+        segmentArray.append(secondSegment)
+        secondSegment.inUse = false
         
         physicsWorld.contactDelegate = self
     }
     
-    func generateTerrain(terrain: SKShapeNode, startPoint: CGPoint) {
+    func generateTerrain(terrain: Terrain, startPoint: CGPoint) {
+        
+        terrain.startPoint = startPoint
         
         let minX: CGFloat = 400
         let minY: CGFloat = 140
@@ -57,8 +66,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let randomX = CGFloat(arc4random_uniform(1400)) + minX
             let randomY = CGFloat(arc4random_uniform(201)) + minY
 
-            var currentX = hillPoints[i].x
-            var currentY = hillPoints[i].y
+            let currentX = hillPoints[i].x
+            let currentY = hillPoints[i].y
             
             let newX = currentX + randomX
             let newY = currentY - randomY
@@ -90,11 +99,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        endX = path.currentPoint.x
-        endY = path.currentPoint.y
+        terrain.endPoint = path.currentPoint
         
         path.addLineToPoint(CGPoint(x: path.currentPoint.x, y: path.currentPoint.y - 600))
-        path.addLineToPoint(CGPoint(x: 0, y: 0))
+        path.addLineToPoint(CGPoint(x: terrain.startPoint.x, y: terrain.startPoint.y - 1000))
         path.closePath()
         terrain.path = path.CGPath
         
@@ -116,23 +124,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cam.position.y = snowball.position.y
         cam.position.x = snowball.position.x + 300
         
-        var currentSnowballPosition = CGPoint(x: snowball.position.x, y: snowball.position.y)
-        var currentEndPoint = CGPoint(x: endX, y: endY)
+        let currentSnowballPosition = snowball.position
         
-        if currentSnowballPosition.x > currentEndPoint.x - 400 {
-            var newSegment = SKShapeNode()
-            newSegment.strokeColor = UIColor.purpleColor()
-            newSegment.fillColor = UIColor.whiteColor()
-            newSegment.lineWidth = 4
-            newSegment.name = "terrain"
+        if currentSnowballPosition.x > currentTerrain.endPoint.x - 1000 {
+            var newSegment: Terrain!
+            for terrain in segmentArray {
+                if terrain.inUse == false {
+                    newSegment = terrain
+                    break
+                }
+            }
+            //newSegment.position = currentTerrain.endPoint
             hillPoints.removeAll()
             addChild(newSegment)
-            segmentArray.append(newSegment)
-            segmentArray.removeFirst()
-            generateTerrain(newSegment, startPoint: currentEndPoint)
-        }
-        if currentEndPoint.x < cam.position.x {
+            generateTerrain(newSegment, startPoint: currentTerrain.endPoint)
+            previousTerrain = currentTerrain
+            currentTerrain = newSegment
+            newSegment.inUse = true
             
+        }
+        
+        if previousTerrain?.endPoint.x < cam.position.x - frame.width / 2 {
+            previousTerrain?.path = nil
+            previousTerrain?.removeFromParent()
+            for terrain in segmentArray {
+                if terrain == previousTerrain {
+                    terrain.inUse = false
+                }
+            }
         }
     }
     

@@ -13,10 +13,20 @@ class Terrain: SKShapeNode {
     
     var startPoint: CGPoint = CGPoint(x: 0, y: 0)
     var endPoint: CGPoint = CGPoint(x: 0, y: 0)
+    var inUse = false
     
     override init() {
         super.init()
+        fillColor = UIColor.whiteColor()
+        strokeColor = UIColor.blueColor()
+        lineWidth = 4
+        name = "terrain"
     }
+    
+    deinit {
+        print("remove terrain")
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

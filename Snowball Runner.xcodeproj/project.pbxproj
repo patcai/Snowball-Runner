@@ -21,6 +21,7 @@
 		DCEFBC711D3D4B4D00BF22BE /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DCEFBC701D3D4B4D00BF22BE /* MainScene.sks */; };
 		DCEFBC731D3D4C3A00BF22BE /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFBC721D3D4C3A00BF22BE /* MSButtonNode.swift */; };
 		DCEFBC751D3D4C7400BF22BE /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFBC741D3D4C7400BF22BE /* MainScene.swift */; };
+		DCF0512B1D4284900059DB0E /* obstacle.sks in Resources */ = {isa = PBXBuildFile; fileRef = DCF0512A1D4284900059DB0E /* obstacle.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		DCEFBC701D3D4B4D00BF22BE /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		DCEFBC721D3D4C3A00BF22BE /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		DCEFBC741D3D4C7400BF22BE /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		DCF0512A1D4284900059DB0E /* obstacle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = obstacle.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				DC218F7C1D3430E5009152CF /* Map.sks */,
 				DC218F4C1D341413009152CF /* GameScene.sks */,
 				DC218F4E1D341413009152CF /* GameScene.swift */,
+				DCF0512A1D4284900059DB0E /* obstacle.sks */,
 				DC0EB1B91D3FEE9000C9A911 /* Terrain.swift */,
 				DCEFBC701D3D4B4D00BF22BE /* MainScene.sks */,
 				DCEFBC741D3D4C7400BF22BE /* MainScene.swift */,
@@ -250,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF0512B1D4284900059DB0E /* obstacle.sks in Resources */,
 				DC218F4D1D341413009152CF /* GameScene.sks in Resources */,
 				DC218F591D341413009152CF /* LaunchScreen.storyboard in Resources */,
 				DC218F541D341413009152CF /* Main.storyboard in Resources */,
