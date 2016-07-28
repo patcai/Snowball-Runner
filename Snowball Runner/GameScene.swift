@@ -9,34 +9,34 @@
 import SpriteKit
 import Foundation
 
-enum GameState {
-    case Loading, Title, Alive, GameOver
-}
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var hillPoints: [CGPoint] = []
     var segmentArray: [Terrain] = []
+    var pointsArray: [CGPoint] = []
     var snowball: SKSpriteNode!
-    let cam = SKCameraNode()
     var point0: CGPoint = CGPoint(x: 0, y: 0)
     var point1: CGPoint = CGPoint(x: 0, y: 0)
     let segmentSize: CGFloat = 10
     var pathNum = 4
     var onGround = false
     var currentTerrain: Terrain!
-    var obstacle: SKSpriteNode!
     var previousTerrain: Terrain?
-    
-    var state: GameState = .Loading
-    
+    var obstacleLayer: SKNode!
+    var maxSpeed: CGFloat = 800
+    let fixedDelta: CFTimeInterval = 1.0 / 60.0
+    var spawnTimer: CFTimeInterval = 0
+    var cam: SKCameraNode?
+    var score: Int?
+    var highscore: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscore")
+    var scoreLabel: SKLabelNode!
     
     override func didMoveToView(view: SKView) {
-        snowball = childNodeWithName("snowball") as! SKSpriteNode
-        //obstacle = childNodeWithName("//obstacle") as! SKSpriteNode
-        
-        self.camera = cam
-        
+        snowball = childNodeWithName("//snowball") as! SKSpriteNode
+        obstacleLayer = self.childNodeWithName("obstacleLayer")
+        cam = childNodeWithName("cam") as? SKCameraNode
+        scoreLabel = childNodeWithName("//scoreLabel") as! SKLabelNode
+
         let firstSegment = Terrain()
         addChild(firstSegment)
         firstSegment.position = CGPoint(x: 0, y: 0)
@@ -53,6 +53,86 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print(onGround)
+        if onGround {
+            onGround = false
+            snowball.physicsBody?.applyImpulse(CGVectorMake(0, 125))
+            snowball.physicsBody?.contactTestBitMask = 1
+        }
+    }
+   
+    override func update(currentTime: CFTimeInterval) {
+        cam!.position.y = snowball.position.y
+        cam!.position.x = snowball.position.x + 300
+        
+        let currentSnowballPosition = snowball.position
+        
+        if currentSnowballPosition.x > currentTerrain.endPoint.x - 1000 {
+            var newSegment: Terrain!
+            for terrain in segmentArray {
+                if terrain.inUse == false {
+                    newSegment = terrain
+                    break
+                }
+            }
+            hillPoints.removeAll()
+            addChild(newSegment)
+            generateTerrain(newSegment, startPoint: currentTerrain.endPoint)
+            previousTerrain = currentTerrain
+            currentTerrain = newSegment
+            newSegment.inUse = true
+        }
+        
+        if previousTerrain?.endPoint.x < cam!.position.x - frame.width / 2 {
+            previousTerrain?.path = nil
+            previousTerrain?.removeFromParent()
+            for terrain in segmentArray {
+                if terrain == previousTerrain {
+                    terrain.inUse = false
+                }
+            }
+        }
+        
+        if snowball.physicsBody?.velocity.dx > maxSpeed {
+            snowball.physicsBody?.velocity.dx = maxSpeed
+        }
+        
+        updateObstacles()
+        
+        // update score
+        spawnTimer += fixedDelta
+        score = Int(spawnTimer)
+        scoreLabel.text = "Score: \(score)"
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        let contactA: SKPhysicsBody = contact.bodyA
+        let contactB: SKPhysicsBody = contact.bodyB
+        
+        let nodeA = contactA.node!
+        let nodeB = contactB.node!
+        
+        if nodeA.name == "snowball" && nodeB.name == "terrain" {
+            onGround = true
+            snowball.physicsBody?.contactTestBitMask = 0
+        }
+    
+        if nodeA.name == "terrain" && nodeB.name == "snowball" {
+            onGround = true
+            snowball.physicsBody?.contactTestBitMask = 0
+        }
+        
+        // contact for boulder and snowball
+        if nodeA.name == "snowball" && nodeB.name == "boulder" {
+            gameOver()
+        }
+        
+        if nodeA.name == "boulder" && nodeB.name == "snowball" {
+            gameOver()
+        }
+    }
+    
     func generateTerrain(terrain: Terrain, startPoint: CGPoint) {
         
         terrain.startPoint = startPoint
@@ -65,7 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for i in 0...pathNum {
             let randomX = CGFloat(arc4random_uniform(1400)) + minX
             let randomY = CGFloat(arc4random_uniform(201)) + minY
-
+            
             let currentX = hillPoints[i].x
             let currentY = hillPoints[i].y
             
@@ -96,6 +176,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 newPoint1.x = point0.x + (CGFloat(j) * dx)
                 newPoint1.y = yMid + (amplitude * cos(da * CGFloat(j)))
                 path.addLineToPoint(newPoint1)
+                
+                if j == 3 {
+                    pointsArray.append(newPoint1)
+                }
             }
         }
         
@@ -111,70 +195,55 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         terrain.physicsBody?.categoryBitMask = 1
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        print(onGround)
-        if onGround {
-            onGround = false
-            snowball.physicsBody?.applyImpulse(CGVectorMake(50, 100))
-            snowball.physicsBody?.contactTestBitMask = 1
-        }
-    }
-   
-    override func update(currentTime: CFTimeInterval) {
-        cam.position.y = snowball.position.y
-        cam.position.x = snowball.position.x + 300
-        
-        let currentSnowballPosition = snowball.position
-        
-        if currentSnowballPosition.x > currentTerrain.endPoint.x - 1000 {
-            var newSegment: Terrain!
-            for terrain in segmentArray {
-                if terrain.inUse == false {
-                    newSegment = terrain
-                    break
-                }
+    func updateObstacles() {
+        for obstacle in obstacleLayer.children as! [Boulder] {
+            let obstaclePositionX = obstacle.position.x
+            
+            if obstaclePositionX < currentTerrain.position.x - (frame.width * 2) {
+                obstacle.removeFromParent()
             }
-            //newSegment.position = currentTerrain.endPoint
-            hillPoints.removeAll()
-            addChild(newSegment)
-            generateTerrain(newSegment, startPoint: currentTerrain.endPoint)
-            previousTerrain = currentTerrain
-            currentTerrain = newSegment
-            newSegment.inUse = true
             
         }
-        
-        if previousTerrain?.endPoint.x < cam.position.x - frame.width / 2 {
-            previousTerrain?.path = nil
-            previousTerrain?.removeFromParent()
-            for terrain in segmentArray {
-                if terrain == previousTerrain {
-                    terrain.inUse = false
-                }
-            }
+        if pointsArray.count > 0 {
+            let boulder = Boulder()
+            boulder.physicsBody = SKPhysicsBody(texture: boulder.texture!, size: boulder.size)
+            boulder.physicsBody?.dynamic = false
+            boulder.physicsBody?.allowsRotation = false
+            boulder.physicsBody?.contactTestBitMask = 2
+            
+            obstacleLayer.addChild(boulder)
+            
+            let obstaclePosition = pointsArray[0]
+            pointsArray.removeAtIndex(0)
+            
+            boulder.position = obstaclePosition
         }
     }
     
-    func didBeginContact(contact: SKPhysicsContact) {
-        let contactA: SKPhysicsBody = contact.bodyA
-        let contactB: SKPhysicsBody = contact.bodyB
-        
-        let nodeA = contactA.node!
-        let nodeB = contactB.node!
-        
-        if nodeA.name == "snowball" && nodeB.name == "terrain" {
-            onGround = true
-            snowball.physicsBody?.contactTestBitMask = 0
+    func gameOver() {
+        if score > highscore {
+            saveHighScore(score!)
+            print("New Highscore = " + String(highscore))
+        } else {
+            print("Highscore  = " + String(highscore))
         }
         
-        if nodeA.name == "terrain" && nodeB.name == "snowball" {
-            onGround = true
-            snowball.physicsBody?.contactTestBitMask = 0
-        }
+        let skView = self.view as SKView!
+        
+        let scene = GameOverScene(fileNamed: "GameOverScene") as GameOverScene!
+        
+        scene.scaleMode = .AspectFill
+        
+        skView.showsPhysics = true
+        skView.showsDrawCount = true
+        skView.showsFPS = true
+        
+        skView.presentScene(scene)
+
+    }
+    
+    func saveHighScore(high: Int) {
+        NSUserDefaults.standardUserDefaults().setInteger(high, forKey: "highscore")
+        
     }
 }
-    
-
-
-
-

@@ -18,7 +18,7 @@ class Terrain: SKShapeNode {
     override init() {
         super.init()
         fillColor = UIColor.whiteColor()
-        strokeColor = UIColor.blueColor()
+        strokeColor = UIColor.clearColor()
         lineWidth = 4
         name = "terrain"
     }
