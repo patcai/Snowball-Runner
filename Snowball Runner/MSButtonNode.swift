@@ -1,9 +1,9 @@
 //
-//  MSButtonNode.swift
-//  Make School
+//  GameScene.swift
+//  Snowball Runner
 //
-//  Created by Martin Walsh on 20/02/2016.
-//  Copyright (c) 2016 Make School. All rights reserved.
+//  Created by Patrick Cai on 7/11/16.
+//  Copyright (c) 2016 patcai. All rights reserved.
 //
 
 import SpriteKit
