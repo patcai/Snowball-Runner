@@ -30,12 +30,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var score: Int = 0
     var highscore: Int = 0
     var scoreLabel: SKLabelNode!
+    let scrollSpeed: CGFloat = 0.2
+    var scrollLayer: SKNode!
     
     override func didMoveToView(view: SKView) {
         snowball = childNodeWithName("//snowball") as! SKSpriteNode
         obstacleLayer = self.childNodeWithName("obstacleLayer")
         cam = childNodeWithName("cam") as? SKCameraNode
         scoreLabel = childNodeWithName("//scoreLabel") as! SKLabelNode
+        scrollLayer = self.childNodeWithName("scrollLayer")
 
         let firstSegment = Terrain()
         addChild(firstSegment)
@@ -100,6 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         updateObstacles()
+        //scrollMountain()
         // update score
         spawnTimer += fixedDelta
         score = Int(spawnTimer)
@@ -220,6 +224,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func scrollMountain() {
+        scrollLayer.position.x -= scrollSpeed
+    }
+    
     func gameOver() {
         if score > highscore {
             saveHighScore(score)
@@ -227,6 +235,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("New Highscore = " + String(highscore))
         } else {
             print("Highscore  = " + String(highscore))
+        }
+        
+        let shakeScene: SKAction = SKAction.init(named: "Shake")!
+        
+        for node in self.children {
+            print("runAction")
+            node.runAction(shakeScene)
         }
         
         let skView = self.view as SKView!
@@ -238,6 +253,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skView.showsPhysics = true
         skView.showsDrawCount = true
         skView.showsFPS = true
+        
+        scene.score = score
+        scene.highscore = highscore
         
         skView.presentScene(scene)
     }

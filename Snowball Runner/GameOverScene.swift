@@ -12,9 +12,18 @@ import SpriteKit
 class GameOverScene: SKScene {
     
     var restartButton: MSButtonNode!
+    var scoreLabel: SKLabelNode!
+    var highLabel: SKLabelNode!
+    var score = 0
+    var highscore = 0
     
     override func didMoveToView(view: SKView) {
         restartButton = self.childNodeWithName("restartButton") as! MSButtonNode
+        scoreLabel = childNodeWithName("scoreLabel") as! SKLabelNode
+        highLabel = childNodeWithName("highLabel") as! SKLabelNode
+        
+        scoreLabel.text = "Score: \(score)"
+        highLabel.text = "Highscore: \(highscore)"
     
         restartButton.selectedHandler = {
             let skView = self.view as SKView!
