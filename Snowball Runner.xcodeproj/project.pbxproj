@@ -22,6 +22,8 @@
 		DC6C027F1D46BA4C004BC1C1 /* Boulder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C027E1D46BA4C004BC1C1 /* Boulder.swift */; };
 		DCCDAB541D4A777500A0DC46 /* GameEffects.sks in Resources */ = {isa = PBXBuildFile; fileRef = DCCDAB531D4A777500A0DC46 /* GameEffects.sks */; };
 		DCCDAB561D4A7DE000A0DC46 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDAB551D4A7DE000A0DC46 /* GameOverScene.swift */; };
+		DCDE308B1D4BD4390005AFEE /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = DCDE30891D4BD4390005AFEE /* Snow.sks */; };
+		DCDE308C1D4BD4390005AFEE /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = DCDE308A1D4BD4390005AFEE /* spark.png */; };
 		DCEFBC711D3D4B4D00BF22BE /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DCEFBC701D3D4B4D00BF22BE /* MainScene.sks */; };
 		DCEFBC731D3D4C3A00BF22BE /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFBC721D3D4C3A00BF22BE /* MSButtonNode.swift */; };
 		DCEFBC751D3D4C7400BF22BE /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFBC741D3D4C7400BF22BE /* MainScene.swift */; };
@@ -74,6 +76,8 @@
 		DC6C027E1D46BA4C004BC1C1 /* Boulder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boulder.swift; sourceTree = "<group>"; };
 		DCCDAB531D4A777500A0DC46 /* GameEffects.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameEffects.sks; sourceTree = "<group>"; };
 		DCCDAB551D4A7DE000A0DC46 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		DCDE30891D4BD4390005AFEE /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
+		DCDE308A1D4BD4390005AFEE /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		DCEFBC701D3D4B4D00BF22BE /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		DCEFBC721D3D4C3A00BF22BE /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		DCEFBC741D3D4C7400BF22BE /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				DC218F4A1D341413009152CF /* AppDelegate.swift */,
 				DC6C027E1D46BA4C004BC1C1 /* Boulder.swift */,
 				DC0EB1B91D3FEE9000C9A911 /* Terrain.swift */,
+				DCDE30891D4BD4390005AFEE /* Snow.sks */,
+				DCDE308A1D4BD4390005AFEE /* spark.png */,
 				DCCDAB531D4A777500A0DC46 /* GameEffects.sks */,
 				DC218F4C1D341413009152CF /* GameScene.sks */,
 				DC218F4E1D341413009152CF /* GameScene.swift */,
@@ -308,11 +314,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCCDAB541D4A777500A0DC46 /* GameEffects.sks in Resources */,
+				DCDE308C1D4BD4390005AFEE /* spark.png in Resources */,
 				DC1D29CC1D4A749E00D77E35 /* GameOverScene.sks in Resources */,
 				DC218F4D1D341413009152CF /* GameScene.sks in Resources */,
 				DC218F591D341413009152CF /* LaunchScreen.storyboard in Resources */,
 				DC218F541D341413009152CF /* Main.storyboard in Resources */,
 				DCF0512D1D42B5CA0059DB0E /* Assets.xcassets in Resources */,
+				DCDE308B1D4BD4390005AFEE /* Snow.sks in Resources */,
 				DCEFBC711D3D4B4D00BF22BE /* MainScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

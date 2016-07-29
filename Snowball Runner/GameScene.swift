@@ -27,8 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let fixedDelta: CFTimeInterval = 1.0 / 60.0
     var spawnTimer: CFTimeInterval = 0
     var cam: SKCameraNode?
-    var score: Int?
-    var highscore: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscore")
+    var score: Int = 0
+    var highscore: Int = 0
     var scoreLabel: SKLabelNode!
     
     override func didMoveToView(view: SKView) {
@@ -51,13 +51,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         secondSegment.inUse = false
         
         physicsWorld.contactDelegate = self
+        highscore = NSUserDefaults.standardUserDefaults().integerForKey("highscore")
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         print(onGround)
         if onGround {
             onGround = false
-            snowball.physicsBody?.applyImpulse(CGVectorMake(0, 125))
+            snowball.physicsBody?.applyImpulse(CGVectorMake(-20, 130))
             snowball.physicsBody?.contactTestBitMask = 1
         }
     }
@@ -99,7 +100,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         updateObstacles()
-        
         // update score
         spawnTimer += fixedDelta
         score = Int(spawnTimer)
@@ -222,7 +222,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func gameOver() {
         if score > highscore {
-            saveHighScore(score!)
+            saveHighScore(score)
+            highscore = score
             print("New Highscore = " + String(highscore))
         } else {
             print("Highscore  = " + String(highscore))
@@ -239,11 +240,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skView.showsFPS = true
         
         skView.presentScene(scene)
-
     }
     
     func saveHighScore(high: Int) {
         NSUserDefaults.standardUserDefaults().setInteger(high, forKey: "highscore")
-        
     }
 }
