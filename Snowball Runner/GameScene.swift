@@ -237,27 +237,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("Highscore  = " + String(highscore))
         }
         
-        let shakeScene: SKAction = SKAction.init(named: "Shake")!
-        
-        for node in self.children {
-            print("runAction")
-            node.runAction(shakeScene)
+        let shakeScene: SKAction = SKAction.moveByX(-20, y: 6, duration: 0.2)
+        let shakeScene2: SKAction = SKAction.moveByX(30, y: 10, duration: 0.2)
+        let delay: SKAction = SKAction.waitForDuration(1)
+        let runAgain: SKAction = SKAction.runBlock {
+            let skView = self.view as SKView!
+            
+            let scene = GameOverScene(fileNamed: "GameOverScene") as GameOverScene!
+            
+            scene.scaleMode = .AspectFill
+            
+            skView.showsPhysics = false
+            skView.showsDrawCount = true
+            skView.showsFPS = true
+            
+            scene.score = self.score
+            scene.highscore = self.highscore
+            
+            skView.presentScene(scene)
+        }
+        let snowballShake: SKAction = SKAction.runBlock {
+            self.snowball.runAction(shakeScene)
+            self.snowball.runAction(shakeScene2)
+        }
+        let snowballDeath: SKAction = SKAction.runBlock {
+            self.currentTerrain.zPosition = 1
+            self.snowball.moveToParent(self)
+            self.snowball.physicsBody?.categoryBitMask = 0
+            self.snowball.physicsBody?.collisionBitMask = 0
         }
         
-        let skView = self.view as SKView!
-        
-        let scene = GameOverScene(fileNamed: "GameOverScene") as GameOverScene!
-        
-        scene.scaleMode = .AspectFill
-        
-        skView.showsPhysics = true
-        skView.showsDrawCount = true
-        skView.showsFPS = true
-        
-        scene.score = score
-        scene.highscore = highscore
-        
-        skView.presentScene(scene)
+        runAction(SKAction.sequence([snowballShake, snowballDeath, delay, runAgain]))
     }
     
     func saveHighScore(high: Int) {

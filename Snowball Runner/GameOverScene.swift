@@ -32,7 +32,7 @@ class GameOverScene: SKScene {
             
             scene.scaleMode = .AspectFill
             
-            skView.showsPhysics = true
+            skView.showsPhysics = false
             skView.showsDrawCount = true
             skView.showsFPS = true
             
