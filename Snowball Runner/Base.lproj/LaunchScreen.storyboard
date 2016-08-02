@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="ayyy" translatesAutoresizingMaskIntoConstraints="NO" id="9Z5-WB-qct">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="dg9-dV-xpl">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
                         </subviews>
@@ -32,6 +32,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ayyy" width="667" height="375"/>
+        <image name="launchScreen" width="667" height="375"/>
     </resources>
 </document>

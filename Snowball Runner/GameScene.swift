@@ -61,7 +61,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print(onGround)
         if onGround {
             onGround = false
-            snowball.physicsBody?.applyImpulse(CGVectorMake(-20, 130))
+            snowball.physicsBody?.applyImpulse(CGVectorMake(-15, 135))
             snowball.physicsBody?.contactTestBitMask = 1
         }
     }
@@ -141,7 +141,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         terrain.startPoint = startPoint
         
-        let minX: CGFloat = 400
+        let minX: CGFloat = 450
         let minY: CGFloat = 140
         
         hillPoints.append(startPoint)
@@ -181,7 +181,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 newPoint1.y = yMid + (amplitude * cos(da * CGFloat(j)))
                 path.addLineToPoint(newPoint1)
                 
-                if j == 3 {
+                if j == 4 {
                     pointsArray.append(newPoint1)
                 }
             }
@@ -210,6 +210,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         if pointsArray.count > 0 {
             let boulder = Boulder()
+            print(boulder.size)
             boulder.physicsBody = SKPhysicsBody(texture: boulder.texture!, size: boulder.size)
             boulder.physicsBody?.dynamic = false
             boulder.physicsBody?.allowsRotation = false
@@ -237,9 +238,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("Highscore  = " + String(highscore))
         }
         
-        let shakeScene: SKAction = SKAction.moveByX(-20, y: 6, duration: 0.2)
-        let shakeScene2: SKAction = SKAction.moveByX(30, y: 10, duration: 0.2)
         let delay: SKAction = SKAction.waitForDuration(1)
+        
+        let turnRed: SKAction = SKAction.colorizeWithColor(UIColor.redColor(), colorBlendFactor: 1.0, duration: 0.1)
+        
+        let dissolve: SKAction = SKAction.fadeAlphaTo(0.0, duration: 0.2)
+        
         let runAgain: SKAction = SKAction.runBlock {
             let skView = self.view as SKView!
             
@@ -256,18 +260,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             skView.presentScene(scene)
         }
-        let snowballShake: SKAction = SKAction.runBlock {
-            self.snowball.runAction(shakeScene)
-            self.snowball.runAction(shakeScene2)
-        }
-        let snowballDeath: SKAction = SKAction.runBlock {
-            self.currentTerrain.zPosition = 1
-            self.snowball.moveToParent(self)
-            self.snowball.physicsBody?.categoryBitMask = 0
-            self.snowball.physicsBody?.collisionBitMask = 0
-        }
-        
-        runAction(SKAction.sequence([snowballShake, snowballDeath, delay, runAgain]))
+        snowball.runAction(turnRed)
+        snowball.runAction(dissolve)
+        runAction(SKAction.sequence([delay, runAgain]))
     }
     
     func saveHighScore(high: Int) {

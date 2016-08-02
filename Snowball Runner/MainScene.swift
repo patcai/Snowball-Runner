@@ -27,7 +27,6 @@ class MainScene: SKScene {
             skView.showsDrawCount = true
             skView.showsFPS = true
             
-            
             skView.presentScene(scene)
         }
         
