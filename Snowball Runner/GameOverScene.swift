@@ -31,8 +31,7 @@ class GameOverScene: SKScene {
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
             
             scene.scaleMode = .AspectFill
-            
-            skView.showsPhysics = false
+
             skView.showsDrawCount = true
             skView.showsFPS = true
             

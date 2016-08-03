@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B7273E64E75B13E4E1CF299E /* Pods_Snowball_RunnerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282708924F29E1D2FB07F9DD /* Pods_Snowball_RunnerUITests.framework */; };
-		C5FB4FDF1F60738460E73278 /* Pods_Snowball_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4208EDEC7466B1DE98F3855 /* Pods_Snowball_Runner.framework */; };
 		DC0EB1BA1D3FEE9000C9A911 /* Terrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0EB1B91D3FEE9000C9A911 /* Terrain.swift */; };
 		DC1D29CC1D4A749E00D77E35 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DC1D29CB1D4A749E00D77E35 /* GameOverScene.sks */; };
 		DC218F4B1D341413009152CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC218F4A1D341413009152CF /* AppDelegate.swift */; };
@@ -20,6 +18,8 @@
 		DC218F641D341413009152CF /* Snowball_RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC218F631D341413009152CF /* Snowball_RunnerTests.swift */; };
 		DC218F6F1D341413009152CF /* Snowball_RunnerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC218F6E1D341413009152CF /* Snowball_RunnerUITests.swift */; };
 		DC6C027F1D46BA4C004BC1C1 /* Boulder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C027E1D46BA4C004BC1C1 /* Boulder.swift */; };
+		DC8E202D1D525D910075A81D /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8E202C1D525D910075A81D /* Coin.swift */; };
+		DC8E202F1D5260980075A81D /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8E202E1D5260980075A81D /* Tree.swift */; };
 		DCCDAB561D4A7DE000A0DC46 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDAB551D4A7DE000A0DC46 /* GameOverScene.swift */; };
 		DCDE308B1D4BD4390005AFEE /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = DCDE30891D4BD4390005AFEE /* Snow.sks */; };
 		DCDE308C1D4BD4390005AFEE /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = DCDE308A1D4BD4390005AFEE /* spark.png */; };
@@ -27,7 +27,6 @@
 		DCEFBC731D3D4C3A00BF22BE /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFBC721D3D4C3A00BF22BE /* MSButtonNode.swift */; };
 		DCEFBC751D3D4C7400BF22BE /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEFBC741D3D4C7400BF22BE /* MainScene.swift */; };
 		DCF0512D1D42B5CA0059DB0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCF0512C1D42B5CA0059DB0E /* Assets.xcassets */; };
-		FAA911B1D913F9EF4B079F0C /* Pods_Snowball_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C42E40114F7D5235F7D5CE5 /* Pods_Snowball_RunnerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,14 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		282708924F29E1D2FB07F9DD /* Pods_Snowball_RunnerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snowball_RunnerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B746C26F8B420DF58C57957 /* Pods-Snowball RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snowball RunnerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snowball RunnerTests/Pods-Snowball RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2F7B4340C21181C93FA6B785 /* Pods-Snowball RunnerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snowball RunnerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snowball RunnerUITests/Pods-Snowball RunnerUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		3D957F87786630DE41F77613 /* Pods-Snowball RunnerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snowball RunnerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Snowball RunnerUITests/Pods-Snowball RunnerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		74E2807B480C7F3BE7807C03 /* Pods-Snowball RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snowball RunnerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Snowball RunnerTests/Pods-Snowball RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
-		7C42E40114F7D5235F7D5CE5 /* Pods_Snowball_RunnerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snowball_RunnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		911AF7ABF1B2F8EAF7C4B202 /* Pods-Snowball Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snowball Runner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snowball Runner/Pods-Snowball Runner.debug.xcconfig"; sourceTree = "<group>"; };
-		9D734B4395FADCBD439A9A7B /* Pods-Snowball Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snowball Runner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Snowball Runner/Pods-Snowball Runner.release.xcconfig"; sourceTree = "<group>"; };
 		DC0EB1B91D3FEE9000C9A911 /* Terrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Terrain.swift; sourceTree = "<group>"; };
 		DC1D29CB1D4A749E00D77E35 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
 		DC218F471D341412009152CF /* Snowball Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snowball Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +64,8 @@
 		DC218F6E1D341413009152CF /* Snowball_RunnerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowball_RunnerUITests.swift; sourceTree = "<group>"; };
 		DC218F701D341413009152CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6C027E1D46BA4C004BC1C1 /* Boulder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boulder.swift; sourceTree = "<group>"; };
+		DC8E202C1D525D910075A81D /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		DC8E202E1D5260980075A81D /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		DCCDAB551D4A7DE000A0DC46 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		DCDE30891D4BD4390005AFEE /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		DCDE308A1D4BD4390005AFEE /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
@@ -80,7 +73,6 @@
 		DCEFBC721D3D4C3A00BF22BE /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		DCEFBC741D3D4C7400BF22BE /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		DCF0512C1D42B5CA0059DB0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E4208EDEC7466B1DE98F3855 /* Pods_Snowball_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snowball_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5FB4FDF1F60738460E73278 /* Pods_Snowball_Runner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA911B1D913F9EF4B079F0C /* Pods_Snowball_RunnerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,26 +94,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7273E64E75B13E4E1CF299E /* Pods_Snowball_RunnerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8DEB5FA564B93B412D5B7204 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				911AF7ABF1B2F8EAF7C4B202 /* Pods-Snowball Runner.debug.xcconfig */,
-				9D734B4395FADCBD439A9A7B /* Pods-Snowball Runner.release.xcconfig */,
-				2B746C26F8B420DF58C57957 /* Pods-Snowball RunnerTests.debug.xcconfig */,
-				74E2807B480C7F3BE7807C03 /* Pods-Snowball RunnerTests.release.xcconfig */,
-				2F7B4340C21181C93FA6B785 /* Pods-Snowball RunnerUITests.debug.xcconfig */,
-				3D957F87786630DE41F77613 /* Pods-Snowball RunnerUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		DC218F3E1D341412009152CF = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +107,6 @@
 				DC218F621D341413009152CF /* Snowball RunnerTests */,
 				DC218F6D1D341413009152CF /* Snowball RunnerUITests */,
 				DC218F481D341412009152CF /* Products */,
-				8DEB5FA564B93B412D5B7204 /* Pods */,
-				FE8C37F3F869E69F08AEC823 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +126,8 @@
 				DCEFBC721D3D4C3A00BF22BE /* MSButtonNode.swift */,
 				DC218F4A1D341413009152CF /* AppDelegate.swift */,
 				DC6C027E1D46BA4C004BC1C1 /* Boulder.swift */,
+				DC8E202C1D525D910075A81D /* Coin.swift */,
+				DC8E202E1D5260980075A81D /* Tree.swift */,
 				DC0EB1B91D3FEE9000C9A911 /* Terrain.swift */,
 				DCDE30891D4BD4390005AFEE /* Snow.sks */,
 				DCDE308A1D4BD4390005AFEE /* spark.png */,
@@ -188,16 +164,6 @@
 			path = "Snowball RunnerUITests";
 			sourceTree = "<group>";
 		};
-		FE8C37F3F869E69F08AEC823 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E4208EDEC7466B1DE98F3855 /* Pods_Snowball_Runner.framework */,
-				7C42E40114F7D5235F7D5CE5 /* Pods_Snowball_RunnerTests.framework */,
-				282708924F29E1D2FB07F9DD /* Pods_Snowball_RunnerUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -205,12 +171,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC218F731D341413009152CF /* Build configuration list for PBXNativeTarget "Snowball Runner" */;
 			buildPhases = (
-				0662249A37119C70732BC2F1 /* [CP] Check Pods Manifest.lock */,
 				DC218F431D341412009152CF /* Sources */,
 				DC218F441D341412009152CF /* Frameworks */,
 				DC218F451D341412009152CF /* Resources */,
-				D915B0A5262814DCA83748AC /* [CP] Embed Pods Frameworks */,
-				B2B331FB26EFBB7271220653 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -338,21 +301,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0662249A37119C70732BC2F1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		0FFD9F27872069BB67F71D55 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,36 +376,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B2B331FB26EFBB7271220653 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Snowball Runner/Pods-Snowball Runner-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D915B0A5262814DCA83748AC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Snowball Runner/Pods-Snowball Runner-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -465,10 +383,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC8E202D1D525D910075A81D /* Coin.swift in Sources */,
 				DC218F4F1D341413009152CF /* GameScene.swift in Sources */,
 				DC0EB1BA1D3FEE9000C9A911 /* Terrain.swift in Sources */,
 				DCCDAB561D4A7DE000A0DC46 /* GameOverScene.swift in Sources */,
 				DC6C027F1D46BA4C004BC1C1 /* Boulder.swift in Sources */,
+				DC8E202F1D5260980075A81D /* Tree.swift in Sources */,
 				DC218F511D341413009152CF /* GameViewController.swift in Sources */,
 				DC218F4B1D341413009152CF /* AppDelegate.swift in Sources */,
 				DCEFBC751D3D4C7400BF22BE /* MainScene.swift in Sources */,
@@ -614,31 +534,32 @@
 		};
 		DC218F741D341413009152CF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 911AF7ABF1B2F8EAF7C4B202 /* Pods-Snowball Runner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Snowball Runner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.patcai.Snowball-Runner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		DC218F751D341413009152CF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D734B4395FADCBD439A9A7B /* Pods-Snowball Runner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Snowball Runner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.patcai.Snowball-Runner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		DC218F771D341413009152CF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B746C26F8B420DF58C57957 /* Pods-Snowball RunnerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -652,7 +573,6 @@
 		};
 		DC218F781D341413009152CF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74E2807B480C7F3BE7807C03 /* Pods-Snowball RunnerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Snowball RunnerTests/Info.plist";
@@ -665,7 +585,6 @@
 		};
 		DC218F7A1D341413009152CF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F7B4340C21181C93FA6B785 /* Pods-Snowball RunnerUITests.debug.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = "Snowball RunnerUITests/Info.plist";
@@ -678,7 +597,6 @@
 		};
 		DC218F7B1D341413009152CF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D957F87786630DE41F77613 /* Pods-Snowball RunnerUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Snowball RunnerUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

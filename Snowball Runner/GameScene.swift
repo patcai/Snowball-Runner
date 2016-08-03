@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scrollLayer: SKNode!
     
     override func didMoveToView(view: SKView) {
-        snowball = childNodeWithName("//snowball") as! SKSpriteNode
+        snowball = childNodeWithName("snowball") as! SKSpriteNode
         obstacleLayer = self.childNodeWithName("obstacleLayer")
         cam = childNodeWithName("cam") as? SKCameraNode
         scoreLabel = childNodeWithName("//scoreLabel") as! SKLabelNode
@@ -127,12 +127,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             snowball.physicsBody?.contactTestBitMask = 0
         }
         
-        // contact for boulder and snowball
+        // contact for obstacles and snowball
         if nodeA.name == "snowball" && nodeB.name == "boulder" {
             gameOver()
         }
         
         if nodeA.name == "boulder" && nodeB.name == "snowball" {
+            gameOver()
+        }
+        
+        if nodeA.name == "snowball" && nodeB.name == "tree" {
+            gameOver()
+        }
+        
+        if nodeA.name == "tree" && nodeB.name == "snowball" {
             gameOver()
         }
     }
@@ -200,7 +208,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updateObstacles() {
-        for obstacle in obstacleLayer.children as! [Boulder] {
+        let randNum = arc4random_uniform(2)
+        
+        for obstacle in obstacleLayer.children {
+            
             let obstaclePositionX = obstacle.position.x
             
             if obstaclePositionX < currentTerrain.position.x - (frame.width * 2) {
@@ -208,21 +219,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
         }
-        if pointsArray.count > 0 {
-            let boulder = Boulder()
-            print(boulder.size)
-            boulder.physicsBody = SKPhysicsBody(texture: boulder.texture!, size: boulder.size)
-            boulder.physicsBody?.dynamic = false
-            boulder.physicsBody?.allowsRotation = false
-            boulder.physicsBody?.contactTestBitMask = 2
-            
-            obstacleLayer.addChild(boulder)
-            
-            let obstaclePosition = pointsArray[0]
-            pointsArray.removeAtIndex(0)
-            
-            boulder.position = obstaclePosition
+        if randNum == 1 {
+            if pointsArray.count > 0 {
+                let boulder = Boulder()
+                print(boulder.size)
+                boulder.physicsBody = SKPhysicsBody(texture: boulder.texture!, size: boulder.size)
+                boulder.physicsBody?.dynamic = false
+                boulder.physicsBody?.allowsRotation = false
+                boulder.physicsBody?.contactTestBitMask = 2
+                
+                obstacleLayer.addChild(boulder)
+                
+                let obstaclePosition = pointsArray[0]
+                pointsArray.removeAtIndex(0)
+                
+                boulder.position = obstaclePosition
+            }
+
+        } else {
+            if pointsArray.count > 0 {
+                let tree = Tree()
+                obstacleLayer.addChild(tree)
+                
+                let obstaclePosition = CGPoint(x: pointsArray[0].x, y: pointsArray[0].y + 40)
+                pointsArray.removeAtIndex(0)
+                
+                tree.position = obstaclePosition
+            }
+
         }
+    }
+    
+    func generateCoins() {
+        
+        
+        
+        
+        
+        
     }
     
     func scrollMountain() {
@@ -250,8 +284,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let scene = GameOverScene(fileNamed: "GameOverScene") as GameOverScene!
             
             scene.scaleMode = .AspectFill
-            
-            skView.showsPhysics = false
+
             skView.showsDrawCount = true
             skView.showsFPS = true
             
