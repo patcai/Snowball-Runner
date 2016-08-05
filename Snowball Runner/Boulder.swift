@@ -17,6 +17,11 @@ class Boulder: SKSpriteNode {
         zPosition = -10
         
         name = "boulder"
+        
+        physicsBody = SKPhysicsBody(texture: self.texture!, size: self.size)
+        physicsBody?.dynamic = false
+        physicsBody?.allowsRotation = false
+        physicsBody?.contactTestBitMask = 2
     }
 
     required init?(coder aDecoder: NSCoder) {

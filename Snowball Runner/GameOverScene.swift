@@ -13,16 +13,24 @@ class GameOverScene: SKScene {
     
     var restartButton: MSButtonNode!
     var scoreLabel: SKLabelNode!
+    var coinLabel: SKLabelNode!
+    var totalLabel: SKLabelNode!
     var highLabel: SKLabelNode!
     var score = 0
+    var coins = 0
+    var totalScore = 0
     var highscore = 0
     
     override func didMoveToView(view: SKView) {
         restartButton = self.childNodeWithName("restartButton") as! MSButtonNode
         scoreLabel = childNodeWithName("scoreLabel") as! SKLabelNode
+        coinLabel = childNodeWithName("coinLabel") as! SKLabelNode
+        totalLabel = childNodeWithName("totalLabel") as! SKLabelNode
         highLabel = childNodeWithName("highLabel") as! SKLabelNode
         
         scoreLabel.text = "Score: \(score)"
+        coinLabel.text = "Coins: \(coins)"
+        totalLabel.text = "Total Score: \(totalScore)"
         highLabel.text = "Highscore: \(highscore)"
     
         restartButton.selectedHandler = {
@@ -31,10 +39,6 @@ class GameOverScene: SKScene {
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
             
             scene.scaleMode = .AspectFill
-
-            skView.showsDrawCount = true
-            skView.showsFPS = true
-            
         
             skView.presentScene(scene)
         }

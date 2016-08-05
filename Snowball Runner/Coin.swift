@@ -17,6 +17,13 @@ class Coin: SKSpriteNode {
         zPosition = 4
         
         name = "coin"
+        
+        physicsBody = SKPhysicsBody(circleOfRadius: 20)
+        physicsBody?.dynamic = false
+        physicsBody?.allowsRotation = false
+        physicsBody?.contactTestBitMask = 2
+        physicsBody?.collisionBitMask = 0
+        physicsBody?.categoryBitMask = 0
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -23,10 +23,6 @@ class MainScene: SKScene {
             
             scene.scaleMode = .AspectFill
             
-            skView.showsPhysics = true
-            skView.showsDrawCount = true
-            skView.showsFPS = true
-            
             skView.presentScene(scene)
         }
         

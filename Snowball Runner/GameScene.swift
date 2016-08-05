@@ -23,7 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var currentTerrain: Terrain!
     var previousTerrain: Terrain?
     var obstacleLayer: SKNode!
-    var maxSpeed: CGFloat = 800
+    var maxSpeed: CGFloat = 600
     let fixedDelta: CFTimeInterval = 1.0 / 60.0
     var spawnTimer: CFTimeInterval = 0
     var cam: SKCameraNode?
@@ -32,13 +32,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode!
     let scrollSpeed: CGFloat = 0.2
     var scrollLayer: SKNode!
+    var coinLayer: SKNode!
+    var coinPositions: [CGPoint] = []
+    var coinLabel: SKLabelNode!
+    var coinCount: Int = 0
+    var totalScore: Int = 0
     
     override func didMoveToView(view: SKView) {
         snowball = childNodeWithName("snowball") as! SKSpriteNode
         obstacleLayer = self.childNodeWithName("obstacleLayer")
         cam = childNodeWithName("cam") as? SKCameraNode
         scoreLabel = childNodeWithName("//scoreLabel") as! SKLabelNode
+        coinLabel = childNodeWithName("//coinLabel") as! SKLabelNode
         scrollLayer = self.childNodeWithName("scrollLayer")
+        coinLayer = self.childNodeWithName("coinLayer")
 
         let firstSegment = Terrain()
         addChild(firstSegment)
@@ -61,7 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print(onGround)
         if onGround {
             onGround = false
-            snowball.physicsBody?.applyImpulse(CGVectorMake(-15, 135))
+            snowball.physicsBody?.applyImpulse(CGVectorMake(0, 180))
             snowball.physicsBody?.contactTestBitMask = 1
         }
     }
@@ -103,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         updateObstacles()
-        //scrollMountain()
+        generateCoins()
         // update score
         spawnTimer += fixedDelta
         score = Int(spawnTimer)
@@ -142,6 +149,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if nodeA.name == "tree" && nodeB.name == "snowball" {
             gameOver()
+        }
+        
+        if nodeA is Coin && nodeB.name == "snowball" {
+            gotCoin(nodeA)
+        }
+        
+        if nodeA.name == "snowball" && nodeB is Coin {
+            gotCoin(nodeB)
         }
     }
     
@@ -192,6 +207,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if j == 4 {
                     pointsArray.append(newPoint1)
                 }
+                
+                if j == 50 || j == 60 || j == 70 || j == 80 {
+                    coinPositions.append(newPoint1)
+                }
             }
         }
         
@@ -222,11 +241,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if randNum == 1 {
             if pointsArray.count > 0 {
                 let boulder = Boulder()
-                print(boulder.size)
-                boulder.physicsBody = SKPhysicsBody(texture: boulder.texture!, size: boulder.size)
-                boulder.physicsBody?.dynamic = false
-                boulder.physicsBody?.allowsRotation = false
-                boulder.physicsBody?.contactTestBitMask = 2
                 
                 obstacleLayer.addChild(boulder)
                 
@@ -241,28 +255,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let tree = Tree()
                 obstacleLayer.addChild(tree)
                 
-                let obstaclePosition = CGPoint(x: pointsArray[0].x, y: pointsArray[0].y + 40)
+                let obstaclePosition = CGPoint(x: pointsArray[0].x, y: pointsArray[0].y + 20)
                 pointsArray.removeAtIndex(0)
                 
                 tree.position = obstaclePosition
             }
-
         }
     }
     
     func generateCoins() {
+        for coin in coinLayer.children {
+            
+            let coinPositionX = coin.position.x
+            
+            if coinPositionX < currentTerrain.position.x - (frame.width * 2) {
+                coin.removeFromParent()
+            }
+        }
         
-        
-        
-        
-        
-        
+        if coinPositions.count > 0 {
+            let coins = Coin()
+
+            coinLayer.addChild(coins)
+            
+            let coinPosition = CGPoint(x: coinPositions[0].x, y: coinPositions[0].y - 20)
+            coinPositions.removeAtIndex(0)
+            
+            coins.position = coinPosition
+        }
     }
     
-    func scrollMountain() {
-        scrollLayer.position.x -= scrollSpeed
+    func gotCoin(coin: SKNode) {
+        coin.removeFromParent()
+        coinCount += 1
+        coinLabel.text = ("Coins = " + String(coinCount))  
     }
-    
+
     func gameOver() {
         if score > highscore {
             saveHighScore(score)
@@ -281,15 +309,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let runAgain: SKAction = SKAction.runBlock {
             let skView = self.view as SKView!
             
-            let scene = GameOverScene(fileNamed: "GameOverScene") as GameOverScene!
+            let scene = GameOverScene(fileNamed: "GameOverScene")!
             
             scene.scaleMode = .AspectFill
-
-            skView.showsDrawCount = true
-            skView.showsFPS = true
             
             scene.score = self.score
             scene.highscore = self.highscore
+            scene.coins = self.coinCount
+            
+            self.totalScore = self.coinCount + self.score
+            
+            scene.totalScore = self.totalScore
             
             skView.presentScene(scene)
         }
