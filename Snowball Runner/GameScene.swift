@@ -182,6 +182,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hillPoints.append(CGPoint(x: newX, y: newY))
         }
         
+        
         let path = UIBezierPath()
         path.moveToPoint(hillPoints[0])
         

@@ -536,11 +536,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Patrick Cai (PV977HSLV7)";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Snowball Runner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.patcai.Snowball-Runner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5601033e-18b7-485f-bec2-0f8ea252f0fa";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -549,11 +552,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Patrick Cai (PV977HSLV7)";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Snowball Runner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.patcai.Snowball-Runner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5601033e-18b7-485f-bec2-0f8ea252f0fa";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
