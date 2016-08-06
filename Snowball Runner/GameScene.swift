@@ -23,7 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var currentTerrain: Terrain!
     var previousTerrain: Terrain?
     var obstacleLayer: SKNode!
-    var maxSpeed: CGFloat = 600
+    var maxSpeed: CGFloat = 650
     let fixedDelta: CFTimeInterval = 1.0 / 60.0
     var spawnTimer: CFTimeInterval = 0
     var cam: SKCameraNode?
@@ -87,6 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     break
                 }
             }
+            
             hillPoints.removeAll()
             addChild(newSegment)
             generateTerrain(newSegment, startPoint: currentTerrain.endPoint)
@@ -111,9 +112,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         updateObstacles()
         generateCoins()
-        // update score
         spawnTimer += fixedDelta
         score = Int(spawnTimer)
+        totalScore = Int(score + coinCount)
         scoreLabel.text = "Score: \(score)"
     }
     
@@ -289,16 +290,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gotCoin(coin: SKNode) {
         coin.removeFromParent()
         coinCount += 1
-        coinLabel.text = ("Coins = " + String(coinCount))  
+        coinLabel.text = ("Coins = " + String(coinCount))
     }
 
     func gameOver() {
-        if score > highscore {
-            saveHighScore(score)
-            highscore = score
+        if totalScore > highscore {
+            saveHighScore(totalScore)
+            highscore = totalScore
             print("New Highscore = " + String(highscore))
         } else {
-            print("Highscore  = " + String(highscore))
+            print("Highscore = " + String(highscore))
         }
         
         let delay: SKAction = SKAction.waitForDuration(1)
@@ -317,13 +318,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             scene.score = self.score
             scene.highscore = self.highscore
             scene.coins = self.coinCount
-            
-            self.totalScore = self.coinCount + self.score
-            
             scene.totalScore = self.totalScore
             
             skView.presentScene(scene)
         }
+        
         snowball.runAction(turnRed)
         snowball.runAction(dissolve)
         runAction(SKAction.sequence([delay, runAgain]))
