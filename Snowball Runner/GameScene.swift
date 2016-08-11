@@ -23,7 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var currentTerrain: Terrain!
     var previousTerrain: Terrain?
     var obstacleLayer: SKNode!
-    var maxSpeed: CGFloat = 650
+    var maxSpeed: CGFloat = 700
     let fixedDelta: CFTimeInterval = 1.0 / 60.0
     var spawnTimer: CFTimeInterval = 0
     var cam: SKCameraNode?
@@ -207,7 +207,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 path.addLineToPoint(newPoint1)
                 
                 if j == 4 {
-                    pointsArray.append(newPoint1)
+                    if pointsArray.isEmpty {
+                        pointsArray.append(newPoint1)
+                    }
+                    else if pointsArray.last!.x + 700 < newPoint1.x {
+                        pointsArray.append(newPoint1)
+                    }
                 }
                 
                 if j == 50 || j == 60 || j == 70 || j == 80 {
@@ -240,6 +245,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
         }
+        
+        
         if randNum == 1 {
             if pointsArray.count > 0 {
                 let boulder = Boulder()
@@ -309,6 +316,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let dissolve: SKAction = SKAction.fadeAlphaTo(0.0, duration: 0.2)
         
         let runAgain: SKAction = SKAction.runBlock {
+            
             let skView = self.view as SKView!
             
             let scene = GameOverScene(fileNamed: "GameOverScene")!
