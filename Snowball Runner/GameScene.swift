@@ -299,6 +299,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         coinCount += 1
         coinLabel.text = ("Coins = " + String(coinCount))
     }
+    
+    func 
 
     func gameOver() {
         if totalScore > highscore {
